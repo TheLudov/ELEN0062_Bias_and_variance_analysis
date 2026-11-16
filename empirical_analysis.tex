@@ -1,0 +1,108 @@
+\section{Question 2.1}\label{2.1}
+\paragraph{Bayes model.}
+By definition, the Bayes model minimises the expected squared error at each point $x$:
+\begin{equation*}
+    h_B(x) = \arg\min_{\hat{y}\in \mathbb{R}} g(\hat{y}), \qquad g(\hat{y})= \E_{y\mid x}\big[(y-\hat{y})^2\big]
+\end{equation*}
+Since $\hat{y}$ is a constant given $x$, $\E_{y\mid x}[\hat{y}]=\hat{y}$, and
+\begin{align*}
+    g'(\hat{y}) = \E_{y\mid x}\big[-2(y-\hat{y})\big] = -2(\E_{y\mid x}\big[y\big]-\hat{y})&=0\\
+    \Leftrightarrow \quad \hat{y}&=\E_{y\mid x}[y]
+\end{align*}
+As $g''(\hat{y}) = 2 > 0$, this is a minimum. Since $y \in \{0, 1\}$,
+\begin{equation*}
+    h_B(x) = \E_{y \mid x}[y] = 0\cdot\Prob(y=0\mid x) + 1\cdot\Prob(y=1\mid x) = \Prob(y=1\mid x)
+\end{equation*}
+\paragraph{Residual error.}
+Let $p(x)=\Prob(y=1\mid x)$. Given $x$, $y \sim \mathrm{Bern}(p)$ and $h_B(x)=p(x)$, so
+\begin{align*}
+    \text{noise}(x)&=\E_{y\mid x}\big[(y-h_B(x))^2\big]=\E_{y\mid x}\big[(y-\E_{y\mid x}[y])^2\big]=\Var_{y\mid x}(y) \\
+    &=\E_{y\mid x}[y^2] - \E_{y\mid x}[y]^2 = p - p^2 && (y^2 = y \text{ since } y \in \{0, 1\}) \\
+    &=\Prob(y=1\mid x)\big(1-\Prob(y=1\mid x)\big).
+\end{align*}
+
+\paragraph{Where is it largest?}
+% Let $\varphi(p(x))=p(x)\cdot(1-p(x))$, its derivative is $\varphi'(p)=1-2p$. $1-2p=0 \Leftrightarrow p=\tfrac{1}{2}$. As $\varphi''(p(x))=-2<0$, this is a maximum, which has the value $\varphi(\tfrac{1}{2})=\tfrac{1}{4}$.
+
+% \vspace{1em}Since $\beta > 0$ and the sigmoid equals $\tfrac{1}{2}$ only when its argument is zero, $\Prob(y=1\mid x) = \tfrac{1}{2} \;\Leftrightarrow\; \beta\big(x_2-\sin(\pi x_1)\big) = 0\;\Leftrightarrow\; x_2=\sin(\pi x_1)$.
+
+% \vspace{1em}Let $d = x_2 - \sin(\pi x_1)$, the probability $\Prob(y=1|x)$ depends on $x$ only through the product $\beta d$, meaning the residual error decreases when $\beta$ increases.
+
+% \vspace{1em} When $\beta \to 0$, the residual error tends to $\tfrac{1}{4}$. When $\beta \to \infty$, the residual error $\to 0$. The noise at each point decreases with $\beta$, except on the curve $x_2=\sin(\pi x_1)$, where it stays at $\tfrac{1}{4}$.
+
+% \section{Question 2.2}
+% A learning sample (LS) is a set of $N=250$ pairs $(x, y)$. For each pair, $x_1$ and $x_2$ are drawn independently from $\mathcal{U}[-1,1]$ and $y$ is drawn from $\mathrm{Bern}(\Prob(y=1\mid x))$. Let $M$ be the number of learning samples.
+
+% We generate $M$ independent learning samples, train one model per sample, then evaluate each of them with \texttt{predict\_proba}, taking the probability of class 1. From there, we can estimate the \textbf{residual error}, \textbf{squared bias}, \textbf{variance}, and \textbf{expected error}
+As a function of $t=p(x)\in[0,1]$, the residual error is $\varphi(t) = t(1-t)$; with $\varphi'(t)=1-2t$ and $\varphi''(t)=-2<0$. Hence $\varphi$ increases on $[0,\tfrac12$, decreases on $[\tfrac12,1]$, and reaches its maximum $\varphi(\tfrac12)=\tfrac14$ at $\tfrac12$.
+
+Since $\beta>0$ and the sigmoid equals $\tfrac12$ only when its argument is zero,
+\[
+p(x)=\tfrac12\Leftrightarrow\beta\big(x_2-\sin(\pi x_1)\big)=0\Leftrightarrow x_2=\sin(\pi x_1)
+\]
+The residual error is thus largest, equal to $\tfrac14$, on the curve $x_2=\sin(\pi x_1)$, and it decreases as $x$ moves aways from this curve.
+\paragraph{Effect of \beta.}
+Let $d=x_2-\sin(\pi x_1)$. Then $p(x)$ depends on $x$ only through $\beta d$, and $p(x)$ moves away from $\tfrac12$ as $|\beta d|$ grows. Since $\varphi$ decreases as $t$ moves away from \tfrac12, the residual error decreases with $|\beta d|$. So, at any fixed point off the curve ($d\neq 0)$, the residual error decrease when $\beta$ increases: \begin{itemize}
+    \item when $\beta \to 0$, $p(x) \to \tfrac12$ and the residual error tends to $\tfrac14$ everywhere
+    \item when $\beta \to \infty$, $p(x) \to 0$ or $1$ and the residual error tends to $0$, except on the curve $x_2=\sin(\pi x_1)$, where it stays at $\tfrac14$.
+\end{itemize}
+
+\paragraph{Residual error.}
+Let $p(x):=\Prob(y=1\mid x)$. From section \ref{2.1}, since we know that given $x$, $y \sim \mathrm{Bern}(p(x))$ and $h_B(x)=p(x)$, we can compute the residual error exactly, so
+\begin{align*}
+    \Var_{y\mid x}(y)&=p(x)(1-p(x))\\
+    &= \Prob(y=1\mid x)\big(1-\Prob(y=1\mid x)\big)
+\end{align*}
+\paragraph{Squared bias.}
+We need to approximate $\E_{\LS}[\hat{f}_{\LS}(x)]$. We generate $M$ learning samples and by the law of large numbers, we can get 
+\begin{align*}
+    \E_{\LS}[\hat{f}_{\LS}(x)] \approx \bar{f}(x) := \frac{1}{M}\sum_{i=1}^M\hat{f}_{\LS_i}(x)
+\end{align*}
+\begin{align*}
+    \text{bias}^2(x) &= \big(p(x)-\E_{\LS}[\hat{f}_{\LS}(x)]\big)^2 \approx \big(p(x)-\bar{f}(x)\big)^2
+\end{align*}
+\paragraph{Variance.}
+\begin{align*}
+    \text{variance}(x)&=\E_{\LS}\big[(\hat{f}_{\LS}(x)-\E_{\LS}[\hat{f}_{\LS}(x)])^2\big]\\
+    &\approx \frac{1}{M}\sum_{i=1}^M\big[\big(\hat{f}_{\LS_i}(x)-\bar{f}(x)\big)^2\big]
+\end{align*}
+
+\paragraph{Expected error.}
+% Let a constant $c\in [0, 1]$,
+% \begin{align*}
+%     \E_{y\mid x}[(y-c)^2] &= \E_{y\mid x}[y^2-2cy+c^2]\\
+%     &=\E_{y\mid x}[y]-\E_{y\mid x}[2cy]+\E_{y\mid x}[c^2]&& (y^2 = y \text{ since } y \in \{0, 1\})\\
+%     &=\E_{y\mid x}[y]-2c\cdot\E_{y\mid x}[y]+c^2=p-2c\cdot p+c^2\\
+%     &=p-2c\cdot p+c^2 +p^2-p^2 = (c^2-2c\cdot p+p^2)+p-p^2\\
+%     &=(c-p)^2+p-p^2=(c-p)^2+p(1-p)\\
+%     &=(c-p)^2+\Var_{y\mid x}(y)
+% \end{align*}
+% For a fixed learning sample, $\hat{f}_{\LS}(x)$ does not depend on $y$. So w.r.t $\E_{y \mid x}$ and $y$ being drawn independently of the learning sample, it behaves like a constant. Thus with $c=\hat{f}_{\LS}(x)$ we get $\E_{y\mid x}[(y-c)^2]=(\hat{f}_{\LS}(x)-p)^2+\Var_{y\mid x}(y)$.
+% \begin{align*}
+%     \mathrm{Err}(x)&=\E_{\LS}\big[(\hat{f}_{\LS}(x)-p)^2+\Var_{y\mid x}(y)\big]\\
+%     &= \frac{1}{M}\sum_{i=1}^M\big[(\hat{f}_{\LS_i}(x)-p)^2+\Var_{y\mid x}(y)\big]\\
+%     &= \frac{1}{M}\sum_{i=1}^M\big[(\hat{f}_{\LS_i}(x)-p)^2\big]+\Var_{y\mid x}(y)\\
+% \end{align*}
+% \begin{align*}
+%     \mathrm{Err}(x)&= \text{residual error}(x)+\text{bias}^2(x)+\text{variance}(x)
+% \end{align*}
+For a fixed LS, $\hat{f}_{\LS}(x)$ does not depend on the test output $y$, so it acts as a constant $c$ under $\E_{y \mid x}$. Using $y^2=y$,
+\[
+\E_{y\mid x}\big[(y-c)^2\big]=p(x)-2c\,p(x)+c^2=\big(c-p(x)\big)^2+p(x)\big(1-p(x)\big)
+\]
+Taking $c=\hat{f}_{\LS}$ and averaging over LS:
+\[
+\mathrm{Err}(x)=\E_{\LS}\big[(\hat{f}_{\LS}(x)-p)^2\big]+\text{residual error}(x)=\text{residual error}(x)+\text{bias}^2(x)+\text{variance}(x)
+\]
+$\mathrm{Err}(x)$ is the estimated by using the estimates of $\text{bias}^2(x)$ and $\text{variance}(x)$ above with no test outputs $y$ needed to be drawn.
+\paragraph{Mean values.}
+To approximate the mean values over the input space, let $T$ be the number of random uniform test points $x^{(1)},\dots,x^{(T)}$ chosen in the square $[-1, 1]^2$: \[\E_x[g(x)] \approx\frac{1}{T}\sum_{j=1}^{T}g(x^{(j)})\] where $g(x^{(j)})$ is replaced by the quantities estimated above.
+\begin{align*}
+    \overline{\text{residual error}}&\approx \frac{1}{T}\sum_{j=1}^{T}\Var_{y\mid x^{(j)}}(y) \\
+    \overline{\text{bias}^2}&\approx \frac{1}{T}\sum_{j=1}^{T}\text{bias}^2(x^{(j)}) = \frac{1}{T}\sum_{j=1}^{T}\big(p(x^{(j)})-\bar{f}(x^{(j)})\big)^2\\
+    \overline{\text{variance}}&\approx\frac{1}{T}\sum_{j=1}^{T}\text{variance}(x^{(j)})=\frac{1}{T}\sum_{j=1}^{T}\Bigg[\frac{1}{M}\sum_{i=1}^M\big[\big(\hat{f}_{\LS_i}(x^{(j)})-\bar{f}(x^{(j)})\big)^2\big]\Bigg]\\
+    \overline{\mathrm{Err}}&\approx \frac{1}{T}\sum_{j=1}^{T}\mathrm{Err}(x^{(j)}) = \overline{\text{residual error}}+\overline{\text{bias}^2}+\overline{\text{variance}}
+\end{align*}
+\paragraph{Value of T and M.} Each learning sample means training one model, so the computing cost increases with $M$. A larger $M$ gives more accurate estimates of $\bar{f}$, the squared bias and the variance. For a good value of $M$, we should run the protocol with two different values of $M$ and check the result. If the result barely changes, $M$ is large enough.
+
+We need to chose the value of $T$ to use enough points that the region near the curve $x_2=\sin(\pi x_1)$ is well covered.
