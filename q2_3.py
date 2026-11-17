@@ -10,7 +10,7 @@ if '__main__' == __name__:
     X1, X2, X_test = make_grid(G=100)
     p = bayes_model(X_test, beta=BETA_DEFAULT)
     methods = {
-        "MLP": MLPClassifier(hidden_layer_sizes=350, solver="lbfgs", alpha=1e-5, max_iter=2000),
+        "MLP": MLPClassifier(hidden_layer_sizes=350, solver="lbfgs", alpha=1e-5, max_iter=3000),
         "kNN": KNeighborsClassifier(n_neighbors=45),
         "Tree": DecisionTreeClassifier(max_depth=6)
     }

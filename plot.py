@@ -57,6 +57,7 @@ def plot_all(X1, X2, p, results, folder="figures", same_scale=False):
         fname = f"q2_3_{name}.pdf"
         plot_method_maps(name, X1, X2, p, avg, bias2, var, vmax_bias, vmax_var, fname)
         print("saved", fname)
+        print(f"{name}: vmax_bias: {vmax_bias}, vmax_var: {vmax_var}")
 
 
 if __name__ == "__main__":
