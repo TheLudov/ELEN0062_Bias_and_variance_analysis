@@ -1,0 +1,210 @@
+{
+ "kNN": {
+  "1": {
+   "misclassification": 0.16098873230616031,
+   "squared_error": 0.16098873230616031,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "2": {
+   "misclassification": 0.16474139212013364,
+   "squared_error": 0.12214347601121651,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "3": {
+   "misclassification": 0.14296113038531186,
+   "squared_error": 0.109364068614497,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "4": {
+   "misclassification": 0.14501306123064683,
+   "squared_error": 0.10317456300155946,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "5": {
+   "misclassification": 0.1376940991110391,
+   "squared_error": 0.09984878160034412,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "6": {
+   "misclassification": 0.14012461893289233,
+   "squared_error": 0.09809940750846145,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "7": {
+   "misclassification": 0.13633367479023256,
+   "squared_error": 0.09704962366732633,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "8": {
+   "misclassification": 0.13855212711457227,
+   "squared_error": 0.09657488049812134,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "10": {
+   "misclassification": 0.13930795657383246,
+   "squared_error": 0.09664303042913133,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "12": {
+   "misclassification": 0.14077720147858874,
+   "squared_error": 0.09727330435250103,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "15": {
+   "misclassification": 0.14368586946986583,
+   "squared_error": 0.09890027356995787,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "20": {
+   "misclassification": 0.15337164799249406,
+   "squared_error": 0.10232089702965187,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "25": {
+   "misclassification": 0.1614517754856177,
+   "squared_error": 0.10597647807698497,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "30": {
+   "misclassification": 0.16935380615262796,
+   "squared_error": 0.10945779486543028,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "40": {
+   "misclassification": 0.1769034743923834,
+   "squared_error": 0.11549997544999936,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "45": {
+   "misclassification": 0.17867023309794677,
+   "squared_error": 0.11802964934306986,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "60": {
+   "misclassification": 0.18238960437557764,
+   "squared_error": 0.12401610667723392,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "80": {
+   "misclassification": 0.18641501685657844,
+   "squared_error": 0.13071808291760373,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "100": {
+   "misclassification": 0.1901749657885117,
+   "squared_error": 0.13876164382583,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "125": {
+   "misclassification": 0.19578462070879393,
+   "squared_error": 0.15256925858225132,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "150": {
+   "misclassification": 0.20322494469442726,
+   "squared_error": 0.1699422783137696,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "200": {
+   "misclassification": 0.22748229750563168,
+   "squared_error": 0.21033661128381367,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  }
+ },
+ "Tree": {
+  "1": {
+   "misclassification": 0.22650075691994612,
+   "squared_error": 0.17701549268213682,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "2": {
+   "misclassification": 0.19122905560803707,
+   "squared_error": 0.13405088031730186,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "3": {
+   "misclassification": 0.1853756002370294,
+   "squared_error": 0.13141947016544728,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "4": {
+   "misclassification": 0.15908836278214925,
+   "squared_error": 0.12919616898075773,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "5": {
+   "misclassification": 0.1599792607380049,
+   "squared_error": 0.13830182709108987,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "6": {
+   "misclassification": 0.1636842055935342,
+   "squared_error": 0.1502572267582879,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "7": {
+   "misclassification": 0.16691229508135358,
+   "squared_error": 0.1600424161374614,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "8": {
+   "misclassification": 0.1676875538526453,
+   "squared_error": 0.16434807267136242,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "10": {
+   "misclassification": 0.16938433200785552,
+   "squared_error": 0.1687257755033585,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "12": {
+   "misclassification": 0.16948498049355845,
+   "squared_error": 0.16937175521406117,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "15": {
+   "misclassification": 0.16960423024898774,
+   "squared_error": 0.16960423024898774,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  },
+  "20": {
+   "misclassification": 0.16960188447982044,
+   "squared_error": 0.16960188447982041,
+   "bayes_misclassification": 0.110960214848757,
+   "residual_error": 0.07789879125583042
+  }
+ }
+}
